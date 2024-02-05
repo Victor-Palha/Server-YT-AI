@@ -17,7 +17,7 @@ export async function downloadAudioController(request, response) {
         });
         return response.send({
             message: "Audio downloaded and converted to mp3",
-            path: `http://localhost:3003/public/${videoId}.mp3`
+            path: `https://ty-transcription.onrender.com/public/${videoId}.mp3`
         });
     } catch (error) {
         console.error("[AUDIO_ERROR] ", error);

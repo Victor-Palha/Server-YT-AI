@@ -9,7 +9,7 @@ app.use(cors({
     origin: "*"
 }))
 
-app.use("/public", express.static(path.resolve() + "/src/audios"));
+app.use("/public", express.static(path.resolve() + "/audios"));
 
 app.get("/audio", downloadAudioController)
 app.delete("/audio", deleteAudioController)

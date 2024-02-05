@@ -6,6 +6,7 @@ import path from 'node:path';
 export const downloader = (videoId) => new Promise((res, rej) => {
     const videoURL = `https://www.youtube.com/watch?v=${videoId}`
     const pathToAudio = path.resolve() + `/src/audios/${videoId}.mp4`
+    console.log("[PATH_SAVE]= "+pathToAudio)
     ytdl(videoURL, {
         quality: "lowestaudio",
         filter: "audioonly",

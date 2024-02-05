@@ -3,11 +3,12 @@ import ffmpeg from 'fluent-ffmpeg';
 import path from "node:path";
 
 export const createMP3 = (videoId)=> new Promise((res, rej) => {
+    const __dirname = process.cwd();
     ffmpeg.setFfmpegPath(ffmpegStatic)
     ffmpeg()
-    .input(`./src/audios/${videoId}.mp4`)
+    .input(__dirname + `/src/audios/${videoId}.mp4`)
     .outputOptions("-ab", "20k")
-    .saveToFile(path.resolve() + "/src/audios/"+videoId+".mp3")
+    .saveToFile(__dirname + "/src/audios/"+videoId+".mp3")
     .on("end", ()=>{
         console.log("[CREATE_MP3] MP3 Created!")
         res()

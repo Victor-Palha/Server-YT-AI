@@ -4,6 +4,7 @@ import { downloader } from "../services/downloader.js"
 
 export async function downloadAudioController(request, response) {
     const videoId = request.query.v;
+    const __dirname = process.cwd();
     if (!videoId) {
         return response.status(400).send({error: "Missing videoId"});
     }
@@ -12,7 +13,7 @@ export async function downloadAudioController(request, response) {
         await downloader(videoId).then(async () => {
             await createMP3(videoId).then(()=>{
                 console.log("[AUDIO] Audio downloaded and converted to mp3");
-                fs.unlinkSync(`./src/audios/${videoId}.mp4`);
+                fs.unlinkSync(__dirname + `/src/audios/${videoId}.mp4`);
             });
         });
         return response.send({

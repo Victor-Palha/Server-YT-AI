@@ -8,8 +8,9 @@ const app = express()
 app.use(cors({
     origin: "*"
 }))
-
-app.use("/public", express.static(path.resolve() + "/audios"));
+const __dirname = process.cwd()
+console.log(__dirname + "/audios")
+app.use("/public", express.static(__dirname + "/src/audios"));
 
 app.get("/audio", downloadAudioController)
 app.delete("/audio", deleteAudioController)

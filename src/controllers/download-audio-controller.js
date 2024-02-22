@@ -18,7 +18,7 @@ export async function downloadAudioController(request, response) {
         });
         return response.send({
             message: "Audio downloaded and converted to mp3",
-            path: `https://api.victor-palha.com/public/${videoId}.mp3`
+            path: `https://yt-api-ai.azurewebsites.net/public/${videoId}.mp3`
         });
     } catch (error) {
         console.error("[AUDIO_ERROR] ", error);

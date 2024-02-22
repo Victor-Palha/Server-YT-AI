@@ -3,5 +3,5 @@ services:
   app:
     image: ashinx/server-yt-transcription:latest
     ports:
-      - 3003:3003
+      - 3000:3000
     restart: always
